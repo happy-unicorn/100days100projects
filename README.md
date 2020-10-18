@@ -1,3 +1,18 @@
+# 100 projects in 100 days
+
+## Projects
+
+| Name                                                                      | Short Description                                          | Date       |
+| ------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------- |
+| [steps-progress-bar]()                                                    | Progress bar in steps                                      | 18-10-2020 |
+| ...                                                                       | ...                                                        | ...        |
+
+## Authors
+
+* **Michael Chernomazov** - *Initial work* - [happy-unicorn](https://github.com/happy-unicorn)
+
+## Additional notes
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
