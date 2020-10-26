@@ -40,7 +40,6 @@ const StepsManager = ({ numberOfSteps }) => {
             <ProgressBar
                 numberOfSteps={numberOfSteps}
                 currentStep={currentStep}
-                setCurrentStep={setCurrentStep}
             />
             <ButtonWrapper>
                 <Button

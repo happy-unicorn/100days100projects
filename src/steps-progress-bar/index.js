@@ -14,6 +14,7 @@ const Page = styled.div`
 const StepsProgressBarPage = () => {
     return (
         <Page>
+            <StepsManager numberOfSteps={7}/>
             <StepsManager numberOfSteps={5}/>
             <StepsManager numberOfSteps={3}/>
         </Page>

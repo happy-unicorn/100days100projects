@@ -5,7 +5,7 @@ const Component = styled.div`
   display: flex;
   position:relative;
   justify-content: space-between;
-  width: ${({ numberOfSteps }) => (numberOfSteps - 1) * 100}px;
+  width: ${({ numberOfSteps }) => (numberOfSteps) * 100 - 50}px;
 `;
 const CircleContainer = styled.div`
   display: flex;
@@ -62,21 +62,17 @@ const GreenLine = styled.div`
   width: ${({ currentStep }) => (currentStep - 1) * 100}px;
   height: 4px;
   background-color: #485e44;
+  transition: width linear 100ms;
 `;
 
-const ProgressBar = ({ numberOfSteps, currentStep, setCurrentStep }) => {
-    const onCircleClick = (newStep) => {
-        setCurrentStep(newStep);
-    };
-
+const ProgressBar = ({ numberOfSteps, currentStep }) => {
     const circles = Array.from({ length: numberOfSteps }, (_, index) => {
         return (
-            <CircleContainer>
-                <Circle
-                    onClick={() => onCircleClick(index + 1)}
-                    key={index}
-                >
-                    <CircleWrapper isActive={index + 1 <= currentStep}>
+            <CircleContainer key={index}>
+                <Circle>
+                    <CircleWrapper
+                        isActive={index + 1 <= currentStep}
+                    >
                         {index + 1}
                     </CircleWrapper>
                 </Circle>
