@@ -6,6 +6,9 @@ const Page = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  & > div {
+    margin-top: 50px;
+  }
 `;
 
 const StepsProgressBarPage = () => {

@@ -9,7 +9,9 @@ const Container = styled.div`
   align-items: center;
 `;
 const ButtonWrapper = styled.div`
-
+  & button {
+    margin: 20px;
+  }
 `;
 
 const StepsManager = ({ numberOfSteps }) => {
