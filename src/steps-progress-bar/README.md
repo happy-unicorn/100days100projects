@@ -2,4 +2,4 @@
 
 ## Description
 
-Progress bar in steps - 18-10-2020
+Progress bar in steps - 26-10-2020

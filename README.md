@@ -4,7 +4,7 @@
 
 | Name                                                                                                       | Short Description                                          | Date       |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------- |
-| [steps-progress-bar](https://github.com/happy-unicorn/100days100projects/tree/main/src/steps-progress-bar) | Progress bar in steps                                      | 18-10-2020 |
+| [steps-progress-bar](https://github.com/happy-unicorn/100days100projects/tree/main/src/steps-progress-bar) | Progress bar in steps                                      | 26-10-2020 |
 | ...                                                                                                        | ...                                                        | ...        |
 
 ## Authors
