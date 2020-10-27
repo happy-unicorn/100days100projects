@@ -2,6 +2,7 @@
 
 # custom
 .idea
+src/template
 
 # dependencies
 /node_modules
