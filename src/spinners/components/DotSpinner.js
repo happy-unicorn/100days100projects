@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const dotShadowKeyframe = props => keyframes`
+const dotShadowKeyframe = () => keyframes`
   0% {
     box-shadow: none;
   }
@@ -9,7 +9,7 @@ const dotShadowKeyframe = props => keyframes`
     box-shadow: 5px 5px 8px #111213, -5px -5px 8px #292c2f;
   }
 `;
-const dotBackgroundKeyframe = props => keyframes`
+const dotBackgroundKeyframe = () => keyframes`
   0% {
     background-color: #1d1f21;
   }
