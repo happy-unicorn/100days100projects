@@ -6,6 +6,7 @@
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------- |
 | [steps-progress-bar](https://github.com/happy-unicorn/100days100projects/tree/main/src/steps-progress-bar) | Progress bar in steps                                      | 26-10-2020 |
 | [spinners](https://github.com/happy-unicorn/100days100projects/tree/main/src/spinners)                     | Beautiful spinners                                         | 27-10-2020 |
+| [3d-watching-card](https://github.com/happy-unicorn/100days100projects/tree/main/src/3d-watching-card)     | Awesome 3D animated card                                   | 28-10-2020 |
 | ...                                                                                                        | ...                                                        | ...        |
 
 ## Authors

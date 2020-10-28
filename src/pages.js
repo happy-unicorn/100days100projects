@@ -8,5 +8,10 @@ export default [
       slug: '/spinners',
       description: 'Spinners',
       date: '27-10-2020'
+  },
+  {
+      slug: '/3d-watching-card',
+      description: 'Awesome 3D animated card',
+      date: '28-10-2020'
   }
 ]
