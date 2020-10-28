@@ -4,7 +4,7 @@ export default function useEventListener(eventName, handler, element = window){
   const savedHandler = useRef();
 
   useEffect(() => {
-    savedHandler.current = handler;
+      savedHandler.current = handler;
   }, [handler]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function useEventListener(eventName, handler, element = window){
       element.addEventListener(eventName, eventListener);
 
       return () => {
-        element.removeEventListener(eventName, eventListener);
+          element.removeEventListener(eventName, eventListener);
       };
     },
     [eventName, element]

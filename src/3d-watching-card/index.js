@@ -7,7 +7,7 @@ const Page = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-color: white;
+  background-color: #ecf1f4;
   perspective: 1000px;
 `;
 
