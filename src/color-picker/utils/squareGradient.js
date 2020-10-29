@@ -1,5 +1,4 @@
-export default function quadGradient(canvas, corners) {
-    const context = canvas.getContext('2d');
+export default function quadGradient(canvas, context, corners) {
     const { width, height } = canvas;
     let gradient, startColor, endColor, fac;
 
