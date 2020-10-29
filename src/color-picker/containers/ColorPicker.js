@@ -1,25 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
-import Square from '../components/Square';
-import Bar from '../components/Bar';
-import Try from '../components/Try';
+import TransparentBar from '../components/TransparentBar';
+import ColorSquare from '../components/ColorSquare';
+import ColorBar from '../components/ColorBar';
+import ColorCurrent from '../components/ColorCurrent';
 
 const Container = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 350px;
-    height: 300px;
-    border-radius: 145px 20px 20px 145px;
-    box-shadow: 5px 5px 8px #111213, -5px -5px 8px #292c2f;
+  display: grid;
+  grid-template-rows: 250px 10px 25px;
+  grid-template-columns: 250px 10px 25px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 8px #111213, -5px -5px 8px #292c2f;
+
+  & > div:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  & > div:nth-child(2) {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  & > div:nth-child(3) {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  & > div:nth-child(4) {
+    grid-area: 3 / 3 / 4 / 4;
+  }
 `;
 
 const ColorPicker = () => {
+    const [color, _] = useState({
+        r: 255,
+        g: 0,
+        b: 0,
+        a: 0.7
+    });
+
     return (
         <Container>
-            {/*<Square/>*/}
-            {/*<Bar/>*/}
-            <Try/>
+            <ColorSquare/>
+            <ColorBar/>
+            <TransparentBar/>
+            <ColorCurrent color={color}/>
         </Container>
     );
 };
