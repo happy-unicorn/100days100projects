@@ -11,7 +11,11 @@ const Component = styled.div`
 const Canvas = styled.canvas``;
 
 const ColorBar = () => {
-    const [setRectangle, setContainer]= useDragAndDrop(null, 'vertical');
+    const [setRectangle, setContainer]= useDragAndDrop((event) => {
+        console.log(event);
+    }, 'vertical', {
+        top: '-5px'
+    });
     const a = useRef(null);
     useEffect(() => {
         const context = a.current.getContext('2d');

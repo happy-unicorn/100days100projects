@@ -12,7 +12,7 @@ const Component = styled.div`
   border-radius: 5px;
 `;
 
-const Rectangle = ({ reference, rot=false }) => {
+const Rectangle = ({ reference, rot = false }) => {
     return (
         <Component ref={reference} rot={rot}/>
     );

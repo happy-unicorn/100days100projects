@@ -28,18 +28,27 @@ const Container = styled.div`
 `;
 
 const ColorPicker = () => {
-    const [color, _] = useState({
+    const [color, setColor] = useState({
         r: 255,
         g: 0,
         b: 0,
         a: 0.7
     });
 
+    const mergeColor = (newColor) => {
+        setColor((prevColor) => {
+            return {
+                ...prevColor,
+                ...newColor
+            }
+        });
+    };
+
     return (
         <Container>
             <ColorSquare/>
             <ColorBar/>
-            <TransparentBar/>
+            <TransparentBar mergeColor={mergeColor} color={color}/>
             <ColorCurrent color={color}/>
         </Container>
     );

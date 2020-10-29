@@ -62,7 +62,12 @@ const Canvas = styled.canvas``;
 //     };
 
 const Square = () => {
-    const [setCircle, setContainer]= useDragAndDrop();
+    const [setCircle, setContainer]= useDragAndDrop((event) => {
+        console.log(event);
+    }, "both", {
+        top: '-7.5px',
+        left: '-7.5px'
+    });
     const a =  useRef(null);
     useEffect(() => {
         const context = a.current.getContext('2d');

@@ -2,12 +2,26 @@ import { useRef, useEffect } from 'react';
 import useEventListener from './useEventListener';
 import useElement from './useElement';
 
-export default function useDragAndDrop(mouseUpCallback, axis='both') {
+export default function useDragAndDrop(mouseUpCallback, axis='both', defaultStyles=null) {
     const [draggable, draggableRef, setDraggable] = useElement();
     const [container, containerRef, setContainer] = useElement();
 
     const isDragReady = useRef(false);
     const dragOffset = useRef({ x: 0, y: 0 });
+
+    useEffect(() => {
+        if (draggable && defaultStyles) {
+            const { width, height } = draggableRef.current.getBoundingClientRect();
+            if (axis === 'both') {
+                draggableRef.current.style.top = defaultStyles.top;
+                draggableRef.current.style.left = defaultStyles.left;
+            } else if (axis === 'horizontal') {
+                draggableRef.current.style.left = defaultStyles.left;
+            } else if (axis === 'vertical') {
+                draggableRef.current.style.top = defaultStyles.top;
+            }
+        }
+    }, [draggable]);
 
     const mouseDownHandler = ({ pageX, pageY }) => {
         isDragReady.current = true;
@@ -16,9 +30,8 @@ export default function useDragAndDrop(mouseUpCallback, axis='both') {
             y: pageY - draggableRef.current.offsetTop
         };
     };
-    const mouseUpHandler = () => {
+    const mouseEndHandler = () => {
         isDragReady.current = false;
-        mouseUpCallback && mouseUpCallback();
     };
     const mouseMoveHandler = (event) => {
         if (isDragReady.current) {
@@ -46,11 +59,17 @@ export default function useDragAndDrop(mouseUpCallback, axis='both') {
 
             draggableRef.current.style.top = offsetY + "px";
             draggableRef.current.style.left = offsetX + "px";
+
+            mouseUpCallback && mouseUpCallback({
+                xAxisRatio: (offsetX + draggableWidth / 2) / containerWidth,
+                yAxisRatio: (offsetY + draggableHeight / 2) / containerHeight
+            });
         }
     };
 
     useEventListener('mousedown', mouseDownHandler, draggable);
-    useEventListener('mouseup', mouseUpHandler, container);
+    useEventListener('mouseup', mouseEndHandler, container);
+    useEventListener('mouseleave', mouseEndHandler, container);
     useEventListener('mousemove', mouseMoveHandler, container);
 
     return [setDraggable, setContainer];

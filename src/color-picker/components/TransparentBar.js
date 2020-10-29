@@ -1,8 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import colorWheel from '../images/colorWheel.png';
 import Rectangle from './Rectangle';
-import useElement from '../hooks/useElement';
 import useDragAndDrop from '../hooks/useDragAndDrop';
 
 const Component = styled.div`
@@ -15,31 +13,25 @@ const Component = styled.div`
   background-position:0 0, 5px 5px;
   overflow: hidden;
 `;
-const Canvas = styled.canvas`
+const Gradient = styled.div`
+  width: 100%;
+  height: 100%;
 `;
 
-const TransparentBar = () => {
-    const [setRectangle, setContainer]= useDragAndDrop(null, 'horizontal');
-    const a = useRef(null);
-    useEffect(() => {
-        const context = a.current.getContext('2d');
-        var my_gradient=context.createLinearGradient(0,0, 250, 25);
-        my_gradient.addColorStop(0,"rgba(255, 0, 0, 0)");
-        my_gradient.addColorStop(1,"rgba(255, 0, 0, 1)");
-        context.fillStyle = my_gradient;
-        context.fillRect(0, 0, 250, 25);
-        a.current.onclick = function(mouseEvent){
-                const canvasContext = a.current.getContext('2d');
-              var imgData = canvasContext.getImageData(mouseEvent.offsetX, mouseEvent.offsetY, 1, 1);
-              var rgba = imgData.data;
-
-              console.log("rgba(" + rgba[0] + ", " + rgba[1] + ", " + rgba[2] + ", " + rgba[3] + ")");
-            }
-    }, [a]);
+const TransparentBar = ({ color, mergeColor }) => {
+    const [setRectangle, setContainer]= useDragAndDrop(({ xAxisRatio }) => {
+        mergeColor({ a: xAxisRatio });
+    }, 'horizontal', {
+        left: `calc(100% * ${color.a})`
+    });
 
     return (
         <Component ref={element => setContainer(element)}>
-            <Canvas ref={a} width='250px' height='25px'/>
+            <Gradient
+                style={{
+                    backgroundImage: `linear-gradient(90deg, rgba(255, 255, 255, 0), rgb(${color.r}, ${color.g}, ${color.b}))`
+                }}
+            />
             <Rectangle reference={element => setRectangle(element)} rot={true}/>
         </Component>
     );
