@@ -35,7 +35,7 @@ export default function useDragAndDrop(mouseUpCallback, axis='both', defaultStyl
     };
     const mouseMoveHandler = (event) => {
         if (isDragReady.current) {
-            const { width: containerWidth, height: containerHeight } = containerRef.current.getBoundingClientRect();
+            const { width: containerWidth, height: containerHeight, left: containerLeft, top: containerTop } = containerRef.current.getBoundingClientRect();
             const { width: draggableWidth, height: draggableHeight } = draggableRef.current.getBoundingClientRect();
             let offsetX = 0, offsetY = 0;
             if (axis === 'horizontal' || axis === 'both') {
@@ -60,10 +60,16 @@ export default function useDragAndDrop(mouseUpCallback, axis='both', defaultStyl
             draggableRef.current.style.top = offsetY + "px";
             draggableRef.current.style.left = offsetX + "px";
 
-            mouseUpCallback && mouseUpCallback({
-                xAxisRatio: (offsetX + draggableWidth / 2) / containerWidth,
-                yAxisRatio: (offsetY + draggableHeight / 2) / containerHeight
-            });
+            if (mouseUpCallback) {
+                const formattedOffsetX = offsetX + (draggableWidth) / 2 > containerWidth - 1 ? offsetX + (draggableWidth) / 2 - 1 : offsetX + (draggableWidth) / 2 + 1;
+                const formattedOffsetY = offsetY + (draggableHeight) / 2 > containerHeight - 1 ? offsetY + (draggableHeight) / 2 - 1 : offsetY + (draggableHeight) / 2 + 1;
+                mouseUpCallback({
+                    offsetX: formattedOffsetX,
+                    offsetY: formattedOffsetY,
+                    xAxisRatio: (offsetX + draggableWidth / 2) / containerWidth,
+                    yAxisRatio: (offsetY + draggableHeight / 2) / containerHeight
+                });
+            }
         }
     };
 

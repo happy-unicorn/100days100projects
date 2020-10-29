@@ -34,6 +34,11 @@ const ColorPicker = () => {
         b: 0,
         a: 0.7
     });
+    const [barColor, setBarColor] = useState({
+        r: 255,
+        g: 0,
+        b: 0
+    });
 
     const mergeColor = (newColor) => {
         setColor((prevColor) => {
@@ -46,9 +51,9 @@ const ColorPicker = () => {
 
     return (
         <Container>
-            <ColorSquare/>
-            <ColorBar/>
-            <TransparentBar mergeColor={mergeColor} color={color}/>
+            <ColorSquare barColor={barColor} mergeColor={mergeColor}/>
+            <ColorBar setBarColor={setBarColor}/>
+            <TransparentBar color={color} mergeColor={mergeColor}/>
             <ColorCurrent color={color}/>
         </Container>
     );

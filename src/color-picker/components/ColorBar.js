@@ -10,32 +10,35 @@ const Component = styled.div`
 `;
 const Canvas = styled.canvas``;
 
-const ColorBar = () => {
+const ColorBar = ({ setBarColor }) => {
+    const canvas = useRef(null);
+    const context = useRef(null);
+
+    useEffect(() => {
+        context.current = canvas.current.getContext('2d');
+        const gradient = context.current.createLinearGradient(0, 0, 0, 250);
+        const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'red'];
+        colors.forEach((color, index) => {
+            gradient.addColorStop(index / (colors.length - 1), color);
+        });
+        context.current.fillStyle = gradient;
+        context.current.fillRect(0, 0, 25, 250);
+    }, []);
+
     const [setRectangle, setContainer]= useDragAndDrop((event) => {
-        console.log(event);
+        const { data: pixel } = context.current.getImageData(event.offsetX, event.offsetY, 1, 1);
+        setBarColor({
+            r: pixel[0],
+            g: pixel[1],
+            b: pixel[2]
+        });
     }, 'vertical', {
         top: '-5px'
     });
-    const a = useRef(null);
-    useEffect(() => {
-        const context = a.current.getContext('2d');
-        var my_gradient=context.createLinearGradient(0,0, 25, 250);
-        my_gradient.addColorStop(0,"white");
-        my_gradient.addColorStop(1,"black");
-        context.fillStyle = my_gradient;
-        context.fillRect(0, 0, 25, 250);
-        a.current.onclick = function(mouseEvent){
-                const canvasContext = a.current.getContext('2d');
-              var imgData = canvasContext.getImageData(mouseEvent.offsetX, mouseEvent.offsetY, 1, 1);
-              var rgba = imgData.data;
-
-              console.log("rgba(" + rgba[0] + ", " + rgba[1] + ", " + rgba[2] + ", " + rgba[3] + ")");
-            }
-    }, []);
 
     return (
         <Component ref={element => setContainer(element)}>
-            <Canvas ref={a} width='25px' height='250px'/>
+            <Canvas ref={canvas} width='25px' height='250px'/>
             <Rectangle reference={element => setRectangle(element)}/>
         </Component>
     );

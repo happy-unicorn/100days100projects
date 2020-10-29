@@ -14,13 +14,12 @@ const Component = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  background-color: rgba(${({ color: { r, g, b, a } }) => `${r}, ${g}, ${b}, ${a}`});
 `;
 
 const ColorCurrent = ({ color }) => {
     return (
         <Component>
-            <Wrapper color={color}/>
+            <Wrapper style={{backgroundColor: `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`}}/>
         </Component>
     );
 };

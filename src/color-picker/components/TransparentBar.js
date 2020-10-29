@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Rectangle from './Rectangle';
 import useDragAndDrop from '../hooks/useDragAndDrop';
