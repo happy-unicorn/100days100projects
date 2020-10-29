@@ -2,17 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Component = styled.div`
+  position: absolute;
   box-sizing: border-box;
+  top: 0;
+  left: 0;
   width: 15px;
   height: 15px;
   border: 3px solid #1d1f21;
-  border-radius: 50%;background-color: green;
-  
+  border-radius: 50%;
 `;
 
-const Circle = ({ test }) => {
+const Circle = ({ reference }) => {
     return (
-        <Component ref={test}/>
+        <Component ref={reference}/>
     );
 };
 

@@ -1,19 +1,25 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import colorWheel from '../images/colorWheel.png';
+import Rectangle from './Rectangle';
+import useElement from '../hooks/useElement';
+import useDragAndDrop from '../hooks/useDragAndDrop';
 
 const Component = styled.div`
+  position: relative;
   background-color: #fff;
   background-image: 
     linear-gradient(45deg, #bbb 25%, transparent 25%, transparent 75%, #bbb 75%, #bbb), 
     linear-gradient(45deg, #bbb 25%, transparent 25%, transparent 75%, #bbb 75%, #bbb);
   background-size: 10px 10px;
   background-position:0 0, 5px 5px;
+  overflow: hidden;
 `;
 const Canvas = styled.canvas`
 `;
 
 const TransparentBar = () => {
+    const [setRectangle, setContainer]= useDragAndDrop(null, 'horizontal');
     const a = useRef(null);
     useEffect(() => {
         const context = a.current.getContext('2d');
@@ -32,8 +38,9 @@ const TransparentBar = () => {
     }, [a]);
 
     return (
-        <Component>
+        <Component ref={element => setContainer(element)}>
             <Canvas ref={a} width='250px' height='25px'/>
+            <Rectangle reference={element => setRectangle(element)} rot={true}/>
         </Component>
     );
 };

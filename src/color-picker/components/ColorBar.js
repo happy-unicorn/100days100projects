@@ -1,10 +1,17 @@
 import React, {useEffect, useRef} from 'react';
 import styled from 'styled-components';
+import Rectangle from './Rectangle';
+import useElement from '../hooks/useElement';
+import useDragAndDrop from '../hooks/useDragAndDrop';
 
-const Component = styled.div``;
+const Component = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
 const Canvas = styled.canvas``;
 
 const ColorBar = () => {
+    const [setRectangle, setContainer]= useDragAndDrop(null, 'vertical');
     const a = useRef(null);
     useEffect(() => {
         const context = a.current.getContext('2d');
@@ -23,8 +30,9 @@ const ColorBar = () => {
     }, []);
 
     return (
-        <Component>
+        <Component ref={element => setContainer(element)}>
             <Canvas ref={a} width='25px' height='250px'/>
+            <Rectangle reference={element => setRectangle(element)}/>
         </Component>
     );
 };

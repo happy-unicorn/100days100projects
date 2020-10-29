@@ -1,6 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import Circle from './Circle';
+import useDragAndDrop from '../hooks/useDragAndDrop';
+import useElement from '../hooks/useElement';
+import Rectangle from './Rectangle';
 
 function quadGradient(canvas, corners) {
     var ctx = canvas.getContext('2d');
@@ -51,79 +54,16 @@ const Component = styled.div`
 `;
 const Canvas = styled.canvas``;
 
+//     //only for this demo
+//     this.initPosition = function () {
+//         el.style.position = "absolute";
+//         el.style.top = "0";
+//         el.style.left = "30px";
+//     };
+
 const Square = () => {
-    var Draggable = function (ref, a) {
-
-    const at = a.current;
-    var el = ref.current,
-        isDragReady = false,
-        dragoffset = {
-            x: 0,
-            y: 0
-        };
-    this.init = function () {
-        //only for this demo
-        this.initPosition();
-        this.events();
-    };
-    //only for this demo
-    this.initPosition = function () {
-        el.style.position = "absolute";
-        el.style.top = "0";
-        el.style.left = "30px";
-    };
-    //events for the element
-    this.events = function () {
-        _on(el, 'mousedown', function (e) {
-            isDragReady = true;
-            dragoffset.x = e.pageX - el.offsetLeft;
-            dragoffset.y = e.pageY - el.offsetTop;
-        });
-        _on(document, 'mouseup', function () {
-            isDragReady = false;
-        });
-        _on(document, 'mousemove', function (e) {
-            if (isDragReady) {
-                let offsetX, offsetY;
-                console.log(e.pageX - dragoffset.x + 15);
-                if (e.pageX - dragoffset.x < -7.5  || e.pageX - dragoffset.x + 15 > 30000) {
-                    offsetX = -7.5;
-                } else if (e.pageX - dragoffset.x + 15 > 257.5) {
-                    offsetX = 250 - 7.5;
-                } else {
-                    offsetX = e.pageX - dragoffset.x;
-                }
-
-                // top/bottom constraint
-                if (e.pageY - dragoffset.y < -7.5 || e.pageY - dragoffset.y + 15 > 30000) {
-                    offsetY = -7.5;
-                } else if (e.pageY - dragoffset.y + 15 > 257.5) {
-                    offsetY = 250 - 7.5;
-                } else {
-                    offsetY = e.pageY - dragoffset.y;
-                }
-
-                el.style.top = offsetY + "px";
-                el.style.left = offsetX + "px";
-            }
-        });
-    };
-    //cross browser event Helper function
-    var _on = function (el, event, fn) {
-        document.attachEvent ? el.attachEvent('on' + event, fn) : el.addEventListener(event, fn, !0);
-    };
-    this.init();
-}
-
-    const ref =  useRef(null);
-    const a = useRef(null);
-    const b = useRef(null);
-    useEffect(() => {
-        console.log(a, ref, b);
-        if (ref.current) {
-            new Draggable(ref, b);
-        }
-    }, []);
+    const [setCircle, setContainer]= useDragAndDrop();
+    const a =  useRef(null);
     useEffect(() => {
         const context = a.current.getContext('2d');
         quadGradient(a.current, {
@@ -142,9 +82,9 @@ const Square = () => {
     }, []);
 
     return (
-        <Component ref={b}>
+        <Component ref={element => setContainer(element)}>
             <Canvas ref={a} width='250px' height='250px'/>
-            <Circle test={ref}/>
+            <Circle reference={element => setCircle(element)}/>
         </Component>
     );
 };
