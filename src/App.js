@@ -5,6 +5,7 @@ import StepsProgressBarPage from './steps-progress-bar';
 import SpinnersPage from './spinners';
 import WatchingCardPage from './3d-watching-card';
 import ColorPickerPage from './color-picker';
+import SliderPage from './slider';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route component={SpinnersPage} path="/spinners" exact/>
           <Route component={WatchingCardPage} path="/3d-watching-card" exact/>
           <Route component={ColorPickerPage} path="/color-picker" exact/>
+          <Route component={SliderPage} path="/slider" exact/>
           <Redirect to="/"/>
       </Switch>
   );

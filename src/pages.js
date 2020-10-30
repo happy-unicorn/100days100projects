@@ -18,5 +18,10 @@ export default [
         slug: '/color-picker',
         description: 'Beautiful color picker',
         date: '29-10-2020'
+    },
+    {
+        slug: '/slider',
+        description: 'Slider',
+        date: '30-10-2020'
     }
 ]
