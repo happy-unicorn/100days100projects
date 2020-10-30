@@ -28,5 +28,10 @@ export default [
         slug: '/rgb-effects',
         description: 'Beautiful RGB effects',
         date: '31-10-2020'
+    },
+    {
+        slug: '/neo-generator',
+        description: 'Beautiful neomorphism generator',
+        date: '1-11-2020'
     }
 ]

@@ -7,6 +7,7 @@ import WatchingCardPage from './3d-watching-card';
 import ColorPickerPage from './color-picker';
 import SliderPage from './slider';
 import RGBEffectsPage from './rgb-effects';
+import NeoGeneratorPage from './neo-generator';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route component={ColorPickerPage} path="/color-picker" exact/>
           <Route component={SliderPage} path="/slider" exact/>
           <Route component={RGBEffectsPage} path="/rgb-effects" exact/>
+          <Route component={NeoGeneratorPage} path="/neo-generator" exact/>
           <Redirect to="/"/>
       </Switch>
   );
