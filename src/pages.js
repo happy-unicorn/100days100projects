@@ -23,5 +23,10 @@ export default [
         slug: '/slider',
         description: 'Slider',
         date: '30-10-2020'
+    },
+    {
+        slug: '/rgb-effects',
+        description: 'Beautiful RGB effects',
+        date: '31-10-2020'
     }
 ]
