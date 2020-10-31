@@ -6,8 +6,10 @@ import SpinnersPage from './spinners';
 import WatchingCardPage from './3d-watching-card';
 import ColorPickerPage from './color-picker';
 import SliderPage from './slider';
+import HalloweenPage from './halloween';
 import RGBEffectsPage from './rgb-effects';
 import NeoGeneratorPage from './neo-generator';
+import ParticlesPage from './particles';
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
           <Route component={WatchingCardPage} path="/3d-watching-card" exact/>
           <Route component={ColorPickerPage} path="/color-picker" exact/>
           <Route component={SliderPage} path="/slider" exact/>
+          <Route component={HalloweenPage} path="/halloween" exact/>
+          <Route component={ParticlesPage} path="/particles" exact/>
           <Route component={RGBEffectsPage} path="/rgb-effects" exact/>
           <Route component={NeoGeneratorPage} path="/neo-generator" exact/>
           <Redirect to="/"/>

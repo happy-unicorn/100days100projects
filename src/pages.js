@@ -25,13 +25,23 @@ export default [
         date: '30-10-2020'
     },
     {
-        slug: '/rgb-effects',
-        description: 'Beautiful RGB effects',
-        date: '31-10-2020'
+        slug: '/halloween',
+        description: 'Halloween CSS animations',
+        date: '31-11-2020'
     },
-    {
-        slug: '/neo-generator',
-        description: 'Beautiful neomorphism generator',
-        date: '1-11-2020'
-    }
+    // {
+    //     slug: '/particles',
+    //     description: 'Particles',
+    //     date: '1-11-2020'
+    // },
+    // {
+    //     slug: '/rgb-effects',
+    //     description: 'Beautiful RGB effects',
+    //     date: '2-10-2020'
+    // },
+    // {
+    //     slug: '/neo-generator',
+    //     description: 'Beautiful neomorphism generator',
+    //     date: '3-11-2020'
+    // }
 ]
