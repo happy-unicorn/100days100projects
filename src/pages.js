@@ -29,11 +29,11 @@ export default [
         description: 'Halloween CSS animations',
         date: '31-11-2020'
     },
-    // {
-    //     slug: '/particles',
-    //     description: 'Particles',
-    //     date: '1-11-2020'
-    // },
+    {
+        slug: '/particles',
+        description: 'Particles',
+        date: '1-11-2020'
+    },
     // {
     //     slug: '/rgb-effects',
     //     description: 'Beautiful RGB effects',

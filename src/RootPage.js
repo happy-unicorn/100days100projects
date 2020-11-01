@@ -43,7 +43,7 @@ const RootPage = () => {
             {
                 pages.map(({slug, description, date}) => {
                     return (
-                        <CustomLink to={slug}>
+                        <CustomLink to={slug} key={date}>
                             {description}
                         </CustomLink>
 
