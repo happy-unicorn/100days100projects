@@ -34,6 +34,11 @@ export default [
         description: 'Particles',
         date: '1-11-2020'
     },
+    {
+        slug: '/particles-buttons',
+        description: 'Buttons with animated particles',
+        date: '2-11-2020'
+    },
     // {
     //     slug: '/rgb-effects',
     //     description: 'Beautiful RGB effects',
