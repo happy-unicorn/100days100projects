@@ -9,6 +9,8 @@
 | [3d-watching-card](https://github.com/happy-unicorn/100days100projects/tree/main/src/3d-watching-card)     | Awesome 3D animated card                                   | 28-10-2020 |
 | [color-picker](https://github.com/happy-unicorn/100days100projects/tree/main/src/color-picker)             | Beautiful color picker                                     | 29-10-2020 |
 | [slider](https://github.com/happy-unicorn/100days100projects/tree/main/src/slider)                         | Slider                                                     | 30-10-2020 |
+| [halloween](https://github.com/happy-unicorn/100days100projects/tree/main/src/halloween)                   | Halloween CSS animations                                   | 31-10-2020 |
+| [particles](https://github.com/happy-unicorn/100days100projects/tree/main/src/particles)                   | Particles                                                  | 1-11-2020  |
 | ...                                                                                                        | ...                                                        | ...        |
 
 ## Authors
