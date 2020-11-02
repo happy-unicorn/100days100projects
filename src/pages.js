@@ -39,6 +39,11 @@ export default [
         description: 'Buttons with animated particles',
         date: '2-11-2020'
     },
+    {
+        slug: '/snow',
+        description: 'Snow animation',
+        date: '3-11-2020'
+    },
     // {
     //     slug: '/rgb-effects',
     //     description: 'Beautiful RGB effects',
