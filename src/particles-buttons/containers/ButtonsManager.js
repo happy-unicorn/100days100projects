@@ -23,7 +23,9 @@ const ButtonsManager = () => {
         'https://img.icons8.com/color/72/we-can-do-it.png',
         'https://img.icons8.com/fluent/72/marijuana-leaf.png',
         'https://img.icons8.com/cotton/72/boletus-mashroom.png',
-        'https://img.icons8.com/fluent/72/bitcoin.png'
+        'https://img.icons8.com/fluent/72/bitcoin.png',
+        'https://img.icons8.com/dusk/72/christmas-stocking.png',
+        'https://img.icons8.com/plasticine/72/spa-flower.png'
     ]);
 
     const buttons = useMemo(() => {
