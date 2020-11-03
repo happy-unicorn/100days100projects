@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import Snow from './containers/Snow';
+import './index.css';
+
 const Page = styled.div`
   display: flex;
   height: 100%;
 `;
 
-const SnowPage = (props) => {
+const SnowPage = () => {
     return (
         <Page>
-            snow page
+            <Snow/>
         </Page>
     );
 };

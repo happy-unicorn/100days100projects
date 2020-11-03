@@ -11,6 +11,8 @@
 | [slider](https://github.com/happy-unicorn/100days100projects/tree/main/src/slider)                         | Slider                                                     | 30-10-2020 |
 | [halloween](https://github.com/happy-unicorn/100days100projects/tree/main/src/halloween)                   | Halloween CSS animations                                   | 31-10-2020 |
 | [particles](https://github.com/happy-unicorn/100days100projects/tree/main/src/particles)                   | Particles                                                  | 1-11-2020  |
+| [particles-buttons](https://github.com/happy-unicorn/100days100projects/tree/main/src/particles-buttons)   | Animation on click                                         | 2-11-2020  |
+| [snow](https://github.com/happy-unicorn/100days100projects/tree/main/src/snow)                             | Let it snow                                                | 3-11-2020  |
 | ...                                                                                                        | ...                                                        | ...        |
 
 ## Authors

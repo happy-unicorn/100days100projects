@@ -1,0 +1,18 @@
+
+  .fa-snowflake {
+      width: 30px;
+      height: 100%;
+color: #fff;
+position: absolute;
+top: -20px;
+animation: fall 5s linear forwards;
+background-image: url('https://img.icons8.com/fluent/72/popcorn.png');
+background-size: 100%;
+backface-visibility: visible;
+}
+
+@keyframes fall {
+to {
+transform: translateY(105vh);
+}
+}
