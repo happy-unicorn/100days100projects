@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Formik } from 'formik';
 import Input from './components/Input';
 import { themes } from './styles/themes';
+import schema from './schemas/schema';
 
 const Page = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const Form = styled.form`
   align-items: center;
   justify-content: center;
   max-width: 550px;
-  padding-top: 30px;
+  padding: 40px 0;
   border-radius: ${props => props.theme.border.radius.standard};
   background-color: ${props => props.theme.background.color.main};
   box-shadow: 
@@ -57,12 +58,13 @@ const BeautifulInputPage = () => {
 
     return (
         <Page theme={themes[theme]}>
+            <Switch theme={themes[theme]} onClick={themeSwitchHandler}>T</Switch>
             <Formik
                 initialValues={{ email: '', password: '' }}
+                validationSchema={schema}
             >
-                {(props) => (
+                {() => (
                     <Form noValidate theme={themes[theme]}>
-                        <Switch theme={themes[theme]} onClick={themeSwitchHandler}>T</Switch>
                         <Input type={'email'} name={'email'} placeholder={'Email'} error={'help'} theme={themes[theme]}/>
                         <Input type={'password'} name={'password'} placeholder={'Password'} theme={themes[theme]}/>
                     </Form>
