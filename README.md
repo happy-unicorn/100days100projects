@@ -13,6 +13,7 @@
 | [particles](https://github.com/happy-unicorn/100days100projects/tree/main/src/particles)                   | Particles                                                  | 1-11-2020  |
 | [particles-buttons](https://github.com/happy-unicorn/100days100projects/tree/main/src/particles-buttons)   | Animation on click                                         | 2-11-2020  |
 | [snow](https://github.com/happy-unicorn/100days100projects/tree/main/src/snow)                             | Let it snow                                                | 3-11-2020  |
+| [beautiful-input](https://github.com/happy-unicorn/100days100projects/tree/main/src/beautiful-input)       | Beautiful input                                            | 4-11-2020  |
 | ...                                                                                                        | ...                                                        | ...        |
 
 ## Authors
