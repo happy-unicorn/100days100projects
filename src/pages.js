@@ -44,6 +44,11 @@ export default [
         description: 'Snow animation',
         date: '3-11-2020'
     },
+    {
+        slug: '/beautiful-input',
+        description: 'Beautiful input',
+        date: '4-11-2020'
+    },
     // {
     //     slug: '/rgb-effects',
     //     description: 'Beautiful RGB effects',
