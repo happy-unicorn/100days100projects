@@ -49,6 +49,11 @@ export default [
         description: 'Beautiful input',
         date: '4-11-2020'
     },
+    {
+        slug: '/image-slider',
+        description: 'Image slider',
+        date: '5-11-2020'
+    },
     // {
     //     slug: '/rgb-effects',
     //     description: 'Beautiful RGB effects',

@@ -1,18 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import Halloween from './containers/Halloween';
 
 const Page = styled.div`
   display:flex;
   height: 100%;
 `;
 
-const HalloweenPage = () => {
+const ImageSliderPage = () => {
     return (
         <Page>
-            <Halloween/>
+            image slider page
         </Page>
     );
 };
 
-export default HalloweenPage;
+export default ImageSliderPage;

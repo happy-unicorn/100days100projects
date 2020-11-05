@@ -11,6 +11,7 @@ import ParticlesPage from './particles';
 import ParticlesButtonsPage from './particles-buttons';
 import SnowPage from './snow';
 import BeautifulInputPage from './beautiful-input';
+import ImageSliderPage from './image-slider';
 import RGBEffectsPage from './rgb-effects';
 import NeoGeneratorPage from './neo-generator';
 
@@ -28,6 +29,7 @@ const App = () => {
           <Route component={ParticlesButtonsPage} path="/particles-buttons" exact/>
           <Route component={SnowPage} path="/snow" exact/>
           <Route component={BeautifulInputPage} path="/beautiful-input" exact/>
+          <Route component={ImageSliderPage} path="/image-slider" exact/>
           <Route component={RGBEffectsPage} path="/rgb-effects" exact/>
           <Route component={NeoGeneratorPage} path="/neo-generator" exact/>
           <Redirect to="/"/>
