@@ -54,11 +54,11 @@ export default [
         description: 'Image slider',
         date: '5-11-2020'
     },
-    // {
-    //     slug: '/rgb-effects',
-    //     description: 'Beautiful RGB effects',
-    //     date: '2-10-2020'
-    // },
+    {
+        slug: '/pulse',
+        description: 'Beautiful pulse effect',
+        date: '24-02-2021'
+    },
     // {
     //     slug: '/neo-generator',
     //     description: 'Beautiful neomorphism generator',

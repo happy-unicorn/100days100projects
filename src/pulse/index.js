@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 const Page = styled.div``;
 
-const RGBEffectsPage = (props) => {
+const PulsePage = (props) => {
     return (
         <Page>
-            rgb effects page
+            pulse page
         </Page>
     );
 };
 
-export default RGBEffectsPage;
+export default PulsePage;
