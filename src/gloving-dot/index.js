@@ -39,7 +39,7 @@ const Dot = styled.span`
     background-color: #00ff0a;
     box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a, 0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
     pointer-events: none;
-    transform: scale(0.1);
+    transform: scale(${({ amode }) => amode ? 0.1 : 0});
     transition: 2s;
   }
   &:hover::before {
@@ -48,12 +48,12 @@ const Dot = styled.span`
   }
 `;
 
-
 const GlovingPage = () => {
     const [numberDots, setNumberDots] = useState({
         h: Math.floor(window.innerHeight / 30),
         w: Math.floor(window.innerWidth / 30)
     });
+    const [mode, setMode] = useState(true);
 
     useEffect(() => {
         const debouncedOnResize = debounce(() => {
@@ -62,18 +62,26 @@ const GlovingPage = () => {
                 w: Math.floor(window.innerWidth / 30)
             });
         }, 10);
+        const onPress = ({ keyCode }) => {
+            if (keyCode === 113) {
+                setMode(prevMode => !prevMode);
+            }
+        };
+
         window.addEventListener('resize', debouncedOnResize, false);
+        window.addEventListener('keypress', onPress, false);
         return () => {
-            window.removeEventListener('resize', debouncedOnResize, false)
+            window.removeEventListener('resize', debouncedOnResize, false);
+            window.removeEventListener('keypress', onPress, false);
         };
     });
-    
+    console.log(mode);
     return (
         <Page>
             {[...Array(numberDots.h)].map((_, i) =>
                 <Row key={i}>
                     {[...Array(numberDots.w)].map((_, j) =>
-                        <Dot key={j}/>
+                        <Dot amode={mode} key={j}/>
                     )}
                 </Row>
             )}
