@@ -1,10 +1,83 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
+import styled, { keyframes } from 'styled-components';
+import { debounce } from './utils/debounce';
 
-const GlovingPage = (props) => {
+const changeColor = keyframes`
+  0% {
+    filter: hue-rotate(0deg);    
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+`;
+
+const Page = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  animation: ${changeColor} 5s linear infinite;
+`;
+const Row = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+const Dot = styled.span`
+  display: block;
+  position: relative;
+  height: 30px;
+  width: 30px;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: #00ff0a;
+    box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a, 0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
+    pointer-events: none;
+    transform: scale(0.1);
+    transition: 2s;
+  }
+  &:hover::before {
+    transform: scale(1);
+    transition: 0s;
+  }
+`;
+
+
+const GlovingPage = () => {
+    const [numberDots, setNumberDots] = useState({
+        h: Math.floor(window.innerHeight / 30),
+        w: Math.floor(window.innerWidth / 30)
+    });
+
+    useEffect(() => {
+        const debouncedOnResize = debounce(() => {
+            setNumberDots({
+                h: Math.floor(window.innerHeight / 30),
+                w: Math.floor(window.innerWidth / 30)
+            });
+        }, 10);
+        window.addEventListener('resize', debouncedOnResize, false);
+        return () => {
+            window.removeEventListener('resize', debouncedOnResize, false)
+        };
+    });
+    
     return (
-        <div>
-
-        </div>
+        <Page>
+            {[...Array(numberDots.h)].map((_, i) =>
+                <Row key={i}>
+                    {[...Array(numberDots.w)].map((_, j) =>
+                        <Dot key={j}/>
+                    )}
+                </Row>
+            )}
+        </Page>
     );
 };
 
