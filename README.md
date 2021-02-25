@@ -15,6 +15,7 @@
 | [snow](https://github.com/happy-unicorn/100days100projects/tree/main/src/snow)                             | Let it snow                                                | 3-11-2020  |
 | [beautiful-input](https://github.com/happy-unicorn/100days100projects/tree/main/src/beautiful-input)       | Beautiful input                                            | 4-11-2020  |
 | [pulse](https://github.com/happy-unicorn/100days100projects/tree/main/src/pulse)                           | Beautiful pulse effect                                     | 24-02-2021 |
+| [gloving-dot](https://github.com/happy-unicorn/100days100projects/tree/main/src/gloving-dot)               | Beautiful gloving dot effects                              | 25-02-2021 |
 | ...                                                                                                        | ...                                                        | ...        |
 
 ## Authors

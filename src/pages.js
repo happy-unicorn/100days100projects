@@ -59,6 +59,11 @@ export default [
         description: 'Beautiful pulse effect',
         date: '24-02-2021'
     },
+    {
+        slug: '/gloving-dot',
+        description: 'Gloving dot effects',
+        date: '25-02-2021'
+    },
     // {
     //     slug: '/neo-generator',
     //     description: 'Beautiful neomorphism generator',

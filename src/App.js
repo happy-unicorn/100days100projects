@@ -13,6 +13,7 @@ import SnowPage from './snow';
 import BeautifulInputPage from './beautiful-input';
 import ImageSliderPage from './image-slider';
 import PulsePage from './pulse';
+import GlovingPage from './gloving-dot';
 import NeoGeneratorPage from './neo-generator';
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
           <Route component={BeautifulInputPage} path="/beautiful-input" exact/>
           <Route component={ImageSliderPage} path="/image-slider" exact/>
           <Route component={PulsePage} path="/pulse" exact/>
+          <Route component={GlovingPage} path="/gloving-dot" exact/>
           <Route component={NeoGeneratorPage} path="/neo-generator" exact/>
           <Redirect to="/"/>
       </Switch>
