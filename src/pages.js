@@ -64,6 +64,11 @@ export default [
         description: 'Gloving dot effects',
         date: '25-02-2021'
     },
+    {
+        slug: '/flip',
+        description: 'Flip card effects',
+        date: '26-02-2021'
+    },
     // {
     //     slug: '/neo-generator',
     //     description: 'Beautiful neomorphism generator',

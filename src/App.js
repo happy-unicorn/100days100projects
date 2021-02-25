@@ -15,6 +15,7 @@ import ImageSliderPage from './image-slider';
 import PulsePage from './pulse';
 import GlovingPage from './gloving-dot';
 import NeoGeneratorPage from './neo-generator';
+import FlipPage from './flip';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route component={PulsePage} path="/pulse" exact/>
           <Route component={GlovingPage} path="/gloving-dot" exact/>
           <Route component={NeoGeneratorPage} path="/neo-generator" exact/>
+          <Route component={FlipPage} path="/flip" exact/>
           <Redirect to="/"/>
       </Switch>
   );
