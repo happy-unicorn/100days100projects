@@ -17,6 +17,8 @@
 | [pulse](https://github.com/happy-unicorn/100days100projects/tree/main/src/pulse)                           | Beautiful pulse effect                                     | 24-02-2021 |
 | [gloving-dot](https://github.com/happy-unicorn/100days100projects/tree/main/src/gloving-dot)               | Beautiful gloving dot effects                              | 25-02-2021 |
 | [flip](https://github.com/happy-unicorn/100days100projects/tree/main/src/flip)                             | Flip card effects                                          | 26-02-2021 |
+| [hexagon-menu](https://github.com/happy-unicorn/100days100projects/tree/main/src/hexagon-menu)             | Animated hexagon menu                                      | 27-02-2021 |
+| [hexagon-grid](https://github.com/happy-unicorn/100days100projects/tree/main/src/hexagon-grid)             | Responsive hexagon menu                                    | 28-02-2021 |
 | ...                                                                                                        | ...                                                        | ...        |
 
 ## Authors

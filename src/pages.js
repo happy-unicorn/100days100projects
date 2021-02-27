@@ -69,6 +69,16 @@ export default [
         description: 'Flip card effects',
         date: '26-02-2021'
     },
+    {
+        slug: '/hexagon-menu',
+        description: 'Animated hexagon menu',
+        date: '27-02-2021'
+    },
+    {
+        slug: '/hexagon-grid',
+        description: 'Responsive hexagon menu',
+        date: '27-02-2021'
+    },
     // {
     //     slug: '/neo-generator',
     //     description: 'Beautiful neomorphism generator',
