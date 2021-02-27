@@ -76,8 +76,13 @@ export default [
     },
     {
         slug: '/hexagon-grid',
-        description: 'Responsive hexagon menu',
-        date: '27-02-2021'
+        description: 'Responsive hexagon grid',
+        date: '28-02-2021'
+    },
+    {
+        slug: '/gloving-hexagon',
+        description: 'Gloving hexagon effects',
+        date: '1-03-2021'
     },
     // {
     //     slug: '/neo-generator',

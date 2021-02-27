@@ -19,6 +19,7 @@
 | [flip](https://github.com/happy-unicorn/100days100projects/tree/main/src/flip)                             | Flip card effects                                          | 26-02-2021 |
 | [hexagon-menu](https://github.com/happy-unicorn/100days100projects/tree/main/src/hexagon-menu)             | Animated hexagon menu                                      | 27-02-2021 |
 | [hexagon-grid](https://github.com/happy-unicorn/100days100projects/tree/main/src/hexagon-grid)             | Responsive hexagon menu                                    | 28-02-2021 |
+| [gloving-hexagon](https://github.com/happy-unicorn/100days100projects/tree/main/src/gloving-hexagon)       | Gloving hexagon effects                                    | 1-03-2021  |
 | ...                                                                                                        | ...                                                        | ...        |
 
 ## Authors

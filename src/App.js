@@ -18,6 +18,7 @@ import NeoGeneratorPage from './neo-generator';
 import FlipPage from './flip';
 import HexagonMenuPage from './hexagon-menu';
 import HexagonGridPage from './hexagon-grid';
+import GlovingHexagonPage from './gloving-hexagon';
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
           <Route component={FlipPage} path="/flip" exact/>
           <Route component={HexagonMenuPage} path="/hexagon-menu" exact/>
           <Route component={HexagonGridPage} path="/hexagon-grid" exact/>
+          <Route component={GlovingHexagonPage} path="/gloving-hexagon" exact/>
           <Redirect to="/"/>
       </Switch>
   );
