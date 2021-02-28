@@ -70,7 +70,6 @@ const GlovingPage = () => {
             if (keyCode === 119) {
                 setDuration(prevDuration => !prevDuration);
             }
-            console.log(keyCode);
         };
 
         window.addEventListener('resize', debouncedOnResize, false);

@@ -1,76 +1,73 @@
 import React, { useEffect, useState} from 'react';
-import styled, { keyframes } from 'styled-components';
-import { debounce } from './utils/debounce';
-
-const changeColor = keyframes`
-  0% {
-    filter: hue-rotate(0deg);    
-  }
-  100% {
-    filter: hue-rotate(360deg);
-  }
-`;
+import styled, { css } from 'styled-components';
 
 const Page = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
-  animation: ${changeColor} 5s linear infinite;
+  overflow: hidden;
 `;
 const Row = styled.div`
   display: flex;
-  justify-content: space-evenly;
-`;
-const Dot = styled.span`
-  display: block;
-  position: relative;
-  height: 30px;
-  width: 30px;
+  margin-top: -${({ radius }) => 1 / Math.sqrt(3) * radius}px;
+  margin-left: -${({ radius }) => radius * 2 + 2}px;
   
-  &::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    background-color: #00ff0a;
-    box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a, 0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
-    pointer-events: none;
-    transform: scale(${({ $mode }) => $mode ? 0.1 : 0});
-    transition: ${({ duration }) => duration ? 2 : 10}s;
+  &:nth-child(even) {
+    margin-left: 2px;
   }
-  &:hover::before {
-    transform: scale(1);
+`;
+const Hexagon = styled.div`
+  position: relative;
+  min-height: ${({ radius }) => 4 / Math.sqrt(3) * radius}px;
+  min-width: ${({ radius }) => 2 * radius}px;
+  margin: 2px; 
+  background-color: transparent;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transition: 3s;
+  
+  &:hover {
+    background-color: #fef2cc;
     transition: 0s;
   }
+  
+  ${({ $mode }) => $mode && css`
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-height: ${({ radius }) => 4 / Math.sqrt(3) * radius - 10}px;
+      min-width: ${({ radius }) => 2 * radius - 10}px;
+      background-color: #1d1f21;
+      transform: translate(-50%, -50%);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+  `}
 `;
 
 const GlovingHexagonPage = () => {
-    const [numberDots, setNumberDots] = useState({
-        h: Math.floor(window.innerHeight / 30),
-        w: Math.floor(window.innerWidth / 30)
+    const [radius] = useState(30);
+    const [numberHexagons, setNumberHexagons] = useState({
+        h: Math.floor(window.innerHeight / (3 / (2 * Math.sqrt(3)) * 2 * radius)) + 2,
+        w: Math.floor(window.innerWidth / (2 * radius)) + 2
     });
-    const [mode, setMode] = useState(true);
-    const [duration, setDuration] = useState(true);
+    const [mode, setMode] = useState(false);
 
     useEffect(() => {
-        const debouncedOnResize = debounce(() => {
-            setNumberDots({
-                h: Math.floor(window.innerHeight / 30),
-                w: Math.floor(window.innerWidth / 30)
+        const debouncedOnResize = () => {
+            setNumberHexagons({
+                h: Math.floor(window.innerHeight / (3 / (2 * Math.sqrt(3)) * 2 * radius)) + 2,
+                w: Math.floor(window.innerWidth / (2 * radius)) + 2
             });
-        }, 10);
+        };
         const onPress = ({ keyCode }) => {
             if (keyCode === 113) {
                 setMode(prevMode => !prevMode);
             }
-            if (keyCode === 119) {
-                setDuration(prevDuration => !prevDuration);
-            }
-            console.log(keyCode);
         };
 
         window.addEventListener('resize', debouncedOnResize, false);
@@ -83,10 +80,10 @@ const GlovingHexagonPage = () => {
 
     return (
         <Page>
-            {[...Array(numberDots.h)].map((_, i) =>
-                <Row key={i}>
-                    {[...Array(numberDots.w)].map((_, j) =>
-                        <Dot duration={duration} $mode={mode} key={j}/>
+            {[...Array(numberHexagons.h)].map((_, i) =>
+                <Row radius={radius} key={i}>
+                    {[...Array(numberHexagons.w)].map((_, j) =>
+                        <Hexagon $mode={mode} radius={radius} key={j}/>
                     )}
                 </Row>
             )}
