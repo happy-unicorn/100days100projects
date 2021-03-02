@@ -84,6 +84,16 @@ export default [
         description: 'Gloving hexagon effects',
         date: '1-03-2021'
     },
+    {
+        slug: '/glassmorphism-generator',
+        description: 'CSS Glassmorphism Generator',
+        date: '2-03-2021'
+    },
+    {
+        slug: '/neu-generator',
+        description: 'CSS Neumorphism Generator',
+        date: '3-03-2021'
+    },
     // {
     //     slug: '/neo-generator',
     //     description: 'Beautiful neomorphism generator',

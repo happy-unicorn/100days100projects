@@ -14,11 +14,13 @@ import BeautifulInputPage from './beautiful-input';
 import ImageSliderPage from './image-slider';
 import PulsePage from './pulse';
 import GlovingPage from './gloving-dot';
-import NeoGeneratorPage from './neo-generator';
+import NeoGeneratorPage from './neu-generator';
 import FlipPage from './flip';
 import HexagonMenuPage from './hexagon-menu';
 import HexagonGridPage from './hexagon-grid';
 import GlovingHexagonPage from './gloving-hexagon';
+import GlassmorphismGeneratorPage from './glassmorphism-generator';
+import NeumorphismGeneratorPage from './neu-generator';
 
 const App = () => {
   return (
@@ -42,6 +44,8 @@ const App = () => {
           <Route component={HexagonMenuPage} path="/hexagon-menu" exact/>
           <Route component={HexagonGridPage} path="/hexagon-grid" exact/>
           <Route component={GlovingHexagonPage} path="/gloving-hexagon" exact/>
+          <Route component={GlassmorphismGeneratorPage} path="/glassmorphism-generator" exact/>
+          <Route component={NeumorphismGeneratorPage} path="/neu-generator" exact/>
           <Redirect to="/"/>
       </Switch>
   );

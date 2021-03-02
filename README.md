@@ -2,25 +2,27 @@
 
 ## Projects
 
-| Name                                                                                                       | Short Description                                          | Date       |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------- |
-| [steps-progress-bar](https://github.com/happy-unicorn/100days100projects/tree/main/src/steps-progress-bar) | Progress bar in steps                                      | 26-10-2020 |
-| [spinners](https://github.com/happy-unicorn/100days100projects/tree/main/src/spinners)                     | Beautiful spinners                                         | 27-10-2020 |
-| [3d-watching-card](https://github.com/happy-unicorn/100days100projects/tree/main/src/3d-watching-card)     | Awesome 3D animated card                                   | 28-10-2020 |
-| [color-picker](https://github.com/happy-unicorn/100days100projects/tree/main/src/color-picker)             | Beautiful color picker                                     | 29-10-2020 |
-| [slider](https://github.com/happy-unicorn/100days100projects/tree/main/src/slider)                         | Slider                                                     | 30-10-2020 |
-| [halloween](https://github.com/happy-unicorn/100days100projects/tree/main/src/halloween)                   | Halloween CSS animations                                   | 31-10-2020 |
-| [particles](https://github.com/happy-unicorn/100days100projects/tree/main/src/particles)                   | Particles                                                  | 1-11-2020  |
-| [particles-buttons](https://github.com/happy-unicorn/100days100projects/tree/main/src/particles-buttons)   | Animation on click                                         | 2-11-2020  |
-| [snow](https://github.com/happy-unicorn/100days100projects/tree/main/src/snow)                             | Let it snow                                                | 3-11-2020  |
-| [beautiful-input](https://github.com/happy-unicorn/100days100projects/tree/main/src/beautiful-input)       | Beautiful input                                            | 4-11-2020  |
-| [pulse](https://github.com/happy-unicorn/100days100projects/tree/main/src/pulse)                           | Beautiful pulse effect                                     | 24-02-2021 |
-| [gloving-dot](https://github.com/happy-unicorn/100days100projects/tree/main/src/gloving-dot)               | Beautiful gloving dot effects                              | 25-02-2021 |
-| [flip](https://github.com/happy-unicorn/100days100projects/tree/main/src/flip)                             | Flip card effects                                          | 26-02-2021 |
-| [hexagon-menu](https://github.com/happy-unicorn/100days100projects/tree/main/src/hexagon-menu)             | Animated hexagon menu                                      | 27-02-2021 |
-| [hexagon-grid](https://github.com/happy-unicorn/100days100projects/tree/main/src/hexagon-grid)             | Responsive hexagon menu                                    | 28-02-2021 |
-| [gloving-hexagon](https://github.com/happy-unicorn/100days100projects/tree/main/src/gloving-hexagon)       | Gloving hexagon effects                                    | 1-03-2021  |
-| ...                                                                                                        | ...                                                        | ...        |
+| Name                                                                                                                 | Short Description                                          | Date       |
+| -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------- |
+| [steps-progress-bar](https://github.com/happy-unicorn/100days100projects/tree/main/src/steps-progress-bar)           | Progress bar in steps                                      | 26-10-2020 |
+| [spinners](https://github.com/happy-unicorn/100days100projects/tree/main/src/spinners)                               | Beautiful spinners                                         | 27-10-2020 |
+| [3d-watching-card](https://github.com/happy-unicorn/100days100projects/tree/main/src/3d-watching-card)               | Awesome 3D animated card                                   | 28-10-2020 |
+| [color-picker](https://github.com/happy-unicorn/100days100projects/tree/main/src/color-picker)                       | Beautiful color picker                                     | 29-10-2020 |
+| [slider](https://github.com/happy-unicorn/100days100projects/tree/main/src/slider)                                   | Slider                                                     | 30-10-2020 |
+| [halloween](https://github.com/happy-unicorn/100days100projects/tree/main/src/halloween)                             | Halloween CSS animations                                   | 31-10-2020 |
+| [particles](https://github.com/happy-unicorn/100days100projects/tree/main/src/particles)                             | Particles                                                  | 1-11-2020  |
+| [particles-buttons](https://github.com/happy-unicorn/100days100projects/tree/main/src/particles-buttons)             | Animation on click                                         | 2-11-2020  |
+| [snow](https://github.com/happy-unicorn/100days100projects/tree/main/src/snow)                                       | Let it snow                                                | 3-11-2020  |
+| [beautiful-input](https://github.com/happy-unicorn/100days100projects/tree/main/src/beautiful-input)                 | Beautiful input                                            | 4-11-2020  |
+| [pulse](https://github.com/happy-unicorn/100days100projects/tree/main/src/pulse)                                     | Beautiful pulse effect                                     | 24-02-2021 |
+| [gloving-dot](https://github.com/happy-unicorn/100days100projects/tree/main/src/gloving-dot)                         | Beautiful gloving dot effects                              | 25-02-2021 |
+| [flip](https://github.com/happy-unicorn/100days100projects/tree/main/src/flip)                                       | Flip card effects                                          | 26-02-2021 |
+| [hexagon-menu](https://github.com/happy-unicorn/100days100projects/tree/main/src/hexagon-menu)                       | Animated hexagon menu                                      | 27-02-2021 |
+| [hexagon-grid](https://github.com/happy-unicorn/100days100projects/tree/main/src/hexagon-grid)                       | Responsive hexagon menu                                    | 28-02-2021 |
+| [gloving-hexagon](https://github.com/happy-unicorn/100days100projects/tree/main/src/gloving-hexagon)                 | Gloving hexagon effects                                    | 1-03-2021  |
+| [glassmorphism-generator](https://github.com/happy-unicorn/100days100projects/tree/main/src/glassmorphism-generator) | CSS Glassmorphism Generator                                | 2-03-2021  |
+| [neu-generator](https://github.com/happy-unicorn/100days100projects/tree/main/src/neu-generator)                     | Beautiful CSS Neumorphism Generator                        | 3-03-2021  |
+| ...                                                                                                                  | ...                                                        | ...        |
 
 ## Authors
 

@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 const Page = styled.div``;
 
-const NeoGeneratorPage = (props) => {
+const NeuGeneratorPage = (props) => {
     return (
         <Page>
-            neo generator page
+            neu generator page
         </Page>
     );
 };
 
-export default NeoGeneratorPage;
+export default NeuGeneratorPage;
