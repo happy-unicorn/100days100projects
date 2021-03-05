@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useCallback } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider, css } from 'styled-components';
+import converter from 'color-convert';
 import Slider from '../components/slider';
 import Output from '../components/Output';
 import Neumorphism from '../components/Neumorphism';
@@ -14,7 +15,7 @@ const Container = styled.div`
   min-height: 100%;
   width: 100%;
   padding: 50px 0;
-  background-color: #922a2a;
+  background: #${({ theme: { backgroundColor } }) => backgroundColor};
 `;
 const Menu = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ const Menu = styled.div`
   padding: 25px;
   margin-top: 25px;
   border-radius: 25px;
-  background: #922a2a;
+  background: #${({ theme: { backgroundColor } }) => backgroundColor};
   box-shadow: 33px 33px 22px #7c2424, -33px -33px 22px #a83030;
 `;
 const Sliders = styled.div`
@@ -46,7 +47,7 @@ const Wrapper = styled.div`
 const Generator = () => {
   const [params, setParams] = useState({
     size: 50,
-    radius: 25,
+    radius: 12,
     distance: 0,
     intensity: 0,
     blur: 0
@@ -69,54 +70,78 @@ const Generator = () => {
     setColor(rgb);
   }, []);
 
-  const code = useMemo(() => {
+  const [theme, code] = useMemo(() => {
     const { r, g, b } = color;
-    return `border-radius: ${params.radius}px;\nbackground-color: rgb(${r}, ${g}, ${b});\n`;
-  }, [params, direction, color]);
-  const theme = useMemo(() => {
-    const { r, g, b } = color;
-    return (r + g + b) / 3 > 127 ? { color: dark, icolor: light }  : { color: light, icolor: dark };
-  }, [color])
+    const colorHEX = converter.rgb.hex([r, g, b]).toLowerCase();
+    const colorHSV = converter.rgb.hsv([r, g, b]);
+    const boxShadow = `box-shadow: `;
+    const theme = {
+      size: params.size,
+      radius: params.radius,
+      backgroundColor: colorHEX,
+      boxShadow,
+      UIColor: colorHSV[2] > 50 ? dark : light,
+      UIColorReverse: colorHSV[2] > 50 ? light : dark
+    };
+    const code = `border-radius: ${params.radius}px;\nbackground-color: #${colorHEX};\n${boxShadow}`;
+    return [theme, code];
+  }, [params, direction, color])
 
   return (
-    <Container>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Container>
         <Neumorphism
-          code={code}
-          size={params.size}
           direction={direction}
           onClick={onDirectionClick}
         />
         <Menu>
           <Sliders>
             <Slider
-              onChange={onParamsChange('size')}
+              min={10}
+              max={300}
+              step={1}
               text={'Size'}
               value={params.size}
-              min={10}
-              max={350}
-              step={1}
-              defaultValue={params.size}
+              onChange={onParamsChange('size')}
             />
             <Slider
-              onChange={onParamsChange('radius')}
-              text={'Radius'}
-              value={params.radius}
               max={Math.floor(params.size / 2)}
               step={1}
-              defaultValue={params.radius}
+              text={'Radius'}
+              value={params.radius}
+              onChange={onParamsChange('radius')}
             />
-            <Slider onChange={onParamsChange('distance')} text={'Distance'} value={params.distance}/>
-            <Slider onChange={onParamsChange('intensity')} text={'Intensity'} value={params.intensity}/>
-            <Slider onChange={onParamsChange('blur')} text={'Blur'} value={params.blur}/>
+            <Slider
+              min={5}
+              max={50}
+              step={1}
+              text={'Distance'}
+              value={params.distance}
+              onChange={onParamsChange('distance')}
+            />
+            <Slider
+              min={0.05}
+              max={0.6}
+              step={0.01}
+              text={'Delta'}
+              value={params.intensity}
+              onChange={onParamsChange('intensity')}
+            />
+            <Slider
+              min={0}
+              max={100}
+              step={1}
+              text={'Blur'}
+              value={params.blur}
+              onChange={onParamsChange('blur')}/>
           </Sliders>
           <Wrapper>
             <Output code={code}/>
             <Picker color={color} onColorChange={onColorChange}/>
           </Wrapper>
         </Menu>
-      </ThemeProvider>
-    </Container>
+      </Container>
+    </ThemeProvider>
   );
 };
 

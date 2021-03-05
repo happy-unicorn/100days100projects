@@ -8,7 +8,7 @@ const Component = styled.div`
   height: 100px;
   width: calc(30%);
   border-radius: 5px;
-  background-color: ${({ theme: { color } }) => color};
+  background-color: ${({ theme: { UIColor } }) => UIColor};
 `;
 const Trigger = styled.div`
   box-sizing: border-box;

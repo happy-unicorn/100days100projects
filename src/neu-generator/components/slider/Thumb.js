@@ -5,7 +5,7 @@ const Component = styled.div`
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background-color: ${({ theme: { color } }) => color};
+  background-color: ${({ theme: { UIColor } }) => UIColor};
   outline: none;
   cursor: grab;
 `;

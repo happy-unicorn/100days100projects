@@ -11,12 +11,12 @@ const StyledSlider = styled(ReactSlider)`
   height: 10px;
 `;
 
-const Slider = ({ defaultValue, text, value, min=0, max=1, step=0.05, onChange }) => {
+const Slider = ({ text, value, min=0, max=1, step=0.05, onChange }) => {
   return (
     <Component>
       <Text text={text} value={value}/>
       <StyledSlider
-        defaultValue={defaultValue}
+        defaultValue={value}
         min={min}
         max={max}
         step={step}

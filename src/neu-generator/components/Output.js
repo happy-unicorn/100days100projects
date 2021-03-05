@@ -8,9 +8,9 @@ const Component = styled.pre`
   padding: 10px;
   margin-right: 10px;
   border-radius: 3px;
-  background-color: ${({ theme: { color } }) => color};
+  background-color: ${({ theme: { UIColor } }) => UIColor};
   font-size: 12px;
-  color: ${({ theme: { icolor } }) => icolor};
+  color: ${({ theme: { UIColorReverse } }) => UIColorReverse};
   white-space: pre-wrap;
   word-wrap: break-word;
   letter-spacing: 0;
