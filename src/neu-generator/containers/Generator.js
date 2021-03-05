@@ -5,6 +5,7 @@ import Slider from '../components/slider';
 import Output from '../components/Output';
 import Neumorphism from '../components/Neumorphism';
 import Picker from '../components/Picker';
+import { getShadowDirection } from '../utils/getShadowDirection';
 import { LIGHT_COLOR as light, DARK_COLOR as dark } from '../styles';
 
 const Container = styled.div`
@@ -22,15 +23,15 @@ const Menu = styled.div`
   box-sizing: border-box;
   flex-direction: column;
   justify-content: space-between;
-  height: 350px;
+  height: 400px;
   width: 80%;
   min-width: 300px;
   max-width: 500px;
   padding: 25px;
-  margin-top: 25px;
+  margin-top: 55px;
   border-radius: 25px;
   background: #${({ theme: { backgroundColor } }) => backgroundColor};
-  box-shadow: 33px 33px 22px #7c2424, -33px -33px 22px #a83030;
+  ${({ theme: { boxShadow } }) => boxShadow}
 `;
 const Sliders = styled.div`
   display: flex;
@@ -46,22 +47,24 @@ const Wrapper = styled.div`
 
 const Generator = () => {
   const [params, setParams] = useState({
-    size: 50,
-    radius: 12,
-    distance: 0,
-    intensity: 0,
-    blur: 0
+    size: 250,
+    radius: 50,
+    distance: 20,
+    intensity: 0.15,
+    blur: 60
   });
   const [color, setColor] = useState({
-    r: 255,
-    g: 255,
-    b: 255,
+    r: 127,
+    g: 127,
+    b: 127,
     a: 1
   });
   const [direction, setDirection] = useState('TL');
 
   const onParamsChange = useCallback((key) => (value) => {
-    setParams(prevState => ({ ...prevState, [key]: value}));
+    setParams(prevState => {
+      return {...prevState, [key]: value};
+    });
   }, []);
   const onDirectionClick = useCallback((direction) => () => {
     setDirection(direction);
@@ -72,20 +75,26 @@ const Generator = () => {
 
   const [theme, code] = useMemo(() => {
     const { r, g, b } = color;
+    const { size, radius, distance, intensity, blur } = params;
     const colorHEX = converter.rgb.hex([r, g, b]).toLowerCase();
     const colorHSV = converter.rgb.hsv([r, g, b]);
-    const boxShadow = `box-shadow: `;
+    const delta = Math.floor(intensity * 50);
+    let topColor = Math.min(100, colorHSV[2] + delta);
+    topColor = converter.hsv.hex([...colorHSV.slice(0, 2), topColor]).toLowerCase();
+    let bottomColor = Math.max(0, colorHSV[2] - delta);
+    bottomColor = converter.hsv.hex([...colorHSV.slice(0, 2), bottomColor]).toLowerCase();
+    const boxShadow = getShadowDirection(direction, distance, blur, topColor, bottomColor);
     const theme = {
-      size: params.size,
-      radius: params.radius,
+      size,
+      radius,
       backgroundColor: colorHEX,
       boxShadow,
       UIColor: colorHSV[2] > 50 ? dark : light,
       UIColorReverse: colorHSV[2] > 50 ? light : dark
     };
-    const code = `border-radius: ${params.radius}px;\nbackground-color: #${colorHEX};\n${boxShadow}`;
+    const code = `border-radius: ${radius}px;\nbackground-color: #${colorHEX};\n${boxShadow}`;
     return [theme, code];
-  }, [params, direction, color])
+  }, [params, direction, color]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -95,6 +104,7 @@ const Generator = () => {
           onClick={onDirectionClick}
         />
         <Menu>
+          <Picker color={color} onColorChange={onColorChange}/>
           <Sliders>
             <Slider
               min={10}
@@ -105,7 +115,8 @@ const Generator = () => {
               onChange={onParamsChange('size')}
             />
             <Slider
-              max={Math.floor(params.size / 2)}
+              min={0}
+              max={150}
               step={1}
               text={'Radius'}
               value={params.radius}
@@ -133,11 +144,11 @@ const Generator = () => {
               step={1}
               text={'Blur'}
               value={params.blur}
-              onChange={onParamsChange('blur')}/>
+              onChange={onParamsChange('blur')}
+            />
           </Sliders>
           <Wrapper>
             <Output code={code}/>
-            <Picker color={color} onColorChange={onColorChange}/>
           </Wrapper>
         </Menu>
       </Container>

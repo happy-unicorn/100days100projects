@@ -20,7 +20,7 @@ const Target = styled.div`
   width: ${({ theme: { size } }) => size}px;
   border-radius: ${({ theme: { radius } }) => radius}px;
   background: #${({ theme: { backgroundColor } }) => backgroundColor};
-  box-shadow: 33px 33px 22px #7c2424, -33px -33px 22px #a83030;
+  ${({ theme: { boxShadow } }) => boxShadow}
 `;
 const Corner = styled.div`
   box-sizing: border-box;

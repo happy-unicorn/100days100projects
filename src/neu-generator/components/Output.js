@@ -6,7 +6,6 @@ const Component = styled.pre`
   height: 100%;
   width: 100%;
   padding: 10px;
-  margin-right: 10px;
   border-radius: 3px;
   background-color: ${({ theme: { UIColor } }) => UIColor};
   font-size: 12px;
@@ -15,6 +14,11 @@ const Component = styled.pre`
   word-wrap: break-word;
   letter-spacing: 0;
   line-height: 18px;
+
+  @media screen and (max-width: 450px) {
+    font-size: 10px;
+    line-height: 16px;
+  }
 `;
 
 const Output = ({ code }) => {

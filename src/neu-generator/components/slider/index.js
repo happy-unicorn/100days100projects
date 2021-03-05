@@ -11,7 +11,7 @@ const StyledSlider = styled(ReactSlider)`
   height: 10px;
 `;
 
-const Slider = ({ text, value, min=0, max=1, step=0.05, onChange }) => {
+const Slider = ({ text, value, min = 0, max = 1, step = 0.05, onChange }) => {
   return (
     <Component>
       <Text text={text} value={value}/>

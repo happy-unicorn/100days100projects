@@ -5,14 +5,14 @@ import { SketchPicker } from 'react-color';
 const Component = styled.div`
   position: relative;
   align-self: center;
-  height: 100px;
+  height: 25px;
   width: calc(30%);
   border-radius: 5px;
   background-color: ${({ theme: { UIColor } }) => UIColor};
 `;
 const Trigger = styled.div`
   box-sizing: border-box;
-  height: 90px;
+  height: 15px;
   width: auto;
   margin: 5px;
   border-radius: 3px;
@@ -21,7 +21,8 @@ const Trigger = styled.div`
 const Wrapper = styled.div`
   display: flex;
   position: absolute;
-  top: 55px;
+  top: 30px;
+  z-index: 5;
 `;
 
 const Picker = ({ color, onColorChange }) => {
