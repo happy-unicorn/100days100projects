@@ -5,7 +5,7 @@ const Component = styled.div`
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background-color: #213a5a;
+  background-color: ${({ theme: { color } }) => color};
   outline: none;
   cursor: grab;
 `;

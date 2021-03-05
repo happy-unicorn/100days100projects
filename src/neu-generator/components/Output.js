@@ -6,10 +6,11 @@ const Component = styled.pre`
   height: 100%;
   width: 100%;
   padding: 10px;
+  margin-right: 10px;
   border-radius: 3px;
-  background-color: #213a5a;
+  background-color: ${({ theme: { color } }) => color};
   font-size: 12px;
-  color: aliceblue;
+  color: ${({ theme: { icolor } }) => icolor};
   white-space: pre-wrap;
   word-wrap: break-word;
   letter-spacing: 0;

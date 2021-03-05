@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const Component = styled.div`
   display: flex;
@@ -16,18 +16,18 @@ const Component = styled.div`
   }
 `;
 const Target = styled.div`
-  height: 400px;
-  width: 400px;
-  background: #922a2a;
-  border-radius: 154px;
+  height: ${({ size }) => size}px;
+  width: ${({ size }) => size}px;
   box-shadow: 33px 33px 22px #7c2424, -33px -33px 22px #a83030;
+  ${({ code }) => css`${code}`}
 `;
 const Corner = styled.div`
   box-sizing: border-box;
   position: absolute;
   height: 35px;
   width: 35px;
-  border: 3px solid green;
+  border: 3px solid ${({ theme: { color } }) => color};
+  background-color: ${({ active, theme: { color } }) => active ? color : 'transparent'}
 `;
 const CornerTL = styled(Corner)`
   top: 0;
@@ -50,14 +50,14 @@ const CornerBL = styled(Corner)`
   border-radius: 0 35px 0 5px;
 `;
 
-const Neumorphism = ({ onClick }) => {
+const Neumorphism = ({ code, size, direction, onClick }) => {
   return (
     <Component>
-      <CornerTL/>
-      <CornerTR/>
-      <CornerBR/>
-      <CornerBL/>
-      <Target/>
+      <CornerTL active={direction === 'TL'} onClick={onClick('TL')}/>
+      <CornerTR active={direction === 'TR'} onClick={onClick('TR')}/>
+      <CornerBR active={direction === 'BR'} onClick={onClick('BR')}/>
+      <CornerBL active={direction === 'BL'} onClick={onClick('BL')}/>
+      <Target size={size} code={code}/>
     </Component>
   );
 };

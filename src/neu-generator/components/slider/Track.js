@@ -6,7 +6,7 @@ const Component = styled.div`
   height: 8px;
   margin: 0 4px;
   border-radius: 4px;
-  background: #213a5a;
+  background: ${({ theme: { color } }) => color};
 `;
 
 const Track = (props, { index }) => {

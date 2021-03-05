@@ -6,7 +6,7 @@ const Component = styled.div`
   justify-content: space-between;
   margin: 0 10px 0 15px;
   font-size: 13px;
-  color: #213a5a;
+  color: ${({ theme: { color } }) => color};
 `;
 const Label = styled.span``;
 const Value = styled(Label)`

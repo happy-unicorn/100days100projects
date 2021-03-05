@@ -5,17 +5,16 @@ import { SketchPicker } from 'react-color';
 const Component = styled.div`
   position: relative;
   align-self: center;
-  height: 40px;
-  width: calc(100% - 8px);
+  height: 100px;
+  width: calc(30%);
   border-radius: 5px;
-  background-color: #213a5a;
+  background-color: ${({ theme: { color } }) => color};
 `;
 const Trigger = styled.div`
   box-sizing: border-box;
-  height: 30px;
+  height: 90px;
   width: auto;
   margin: 5px;
-  border: 3px solid #f0f8ff;
   border-radius: 3px;
   background-color: rgb(${({ color: { r, g, b } }) => `${r}, ${g}, ${b}`});
 `;
